@@ -6,7 +6,7 @@ function solve(arr){
             buy=arr[i];
         }
         if(arr[i]-buy>profit){
-            profit=arr[i]-buy;
+            profit=arr[i]-buy;//updating profit
         }
     }
     return profit
