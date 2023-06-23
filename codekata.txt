@@ -1,0 +1,114 @@
+//1.single number
+function singleNumber(arr,s)
+{
+    
+    for(let i=0;i<s;i++)
+    {
+        let count=0
+        for(let j=0;i<s;i++)
+        {
+            if(arr[i]==arr[j]){
+                count++
+                break
+            }
+        }
+            if(count==1){
+                return arr[i]
+            }
+            
+    }
+   return -1 
+}
+let num=[2,1,1]
+let s=3
+console.log(singleNumber(num,s))
+
+output:2
+https://leetcode.com/problems/sum-of-beauty-of-all-substrings/
+https://leetcode.com/problems/longest-consecutive-sequence/description/
+https://leetcode.com/problems/maximum-nesting-depth-of-the-parentheses/
+https://practice.geeksforgeeks.org/problems/parenthesis-checker2744/1
+ //Beauty of string
+let maxfreq=-1,minfreq=1
+function beautyofstring(s){
+    for(let i=0;i<s.length;i++){
+        let currentfreq=0
+ for(let j=i;j<s.length;j++){
+     if(s[i]==s[j]){
+         currentfreq++
+     }
+    }
+    maxfreq=Math.max(maxfreq,currentfreq)
+    minfreq-Math.min(minfreq,currentfreq)
+    }
+    return maxfreq-minfreq
+}
+
+let arr=["abaacc"]
+let str=arr[0].split("")
+console.log(beautyofstring(str))
+
+//balanced paranthesis
+let st=["{()("]
+let str=st[0].split("")
+let x=[]
+for(let i=0;i<str.length;i++){
+    if(str[i]=='{' || str[i]=='(' || str[i]=='['){
+        x.push(str[i])
+        continue
+    }
+    else if(str[i]=='}' || str[i]==')' || str[i]==']'){
+        let y=x.pop()
+        if(y==str[i]){
+            continue
+        }
+    }
+}
+
+if(x==""){
+    console.log("Balanced")
+}else{
+    console.log("unbalanced")
+}
+//Q4.palindrome
+function palindrome(str){
+    let revstr=str.split("").reverse().join("")
+    if(str==revstr){
+    return revstr
+    }
+    return -1
+}
+
+let arr="NITTIN"
+console.log(palindrome(arr))
+
+//Q2.random number
+function random(diff){
+    let rand=Math.random()*diff
+    return rand
+}
+
+let min=1
+let max=10
+let difference=max-min
+console.log(random(difference))
+
+//Best Time to Buy and Sell Stock
+
+let p=[7,1,5,3,6,4]
+function stock(prices){
+let maxProfit = 0;
+let minPrice = prices[0];
+    for (let i = 1; i < prices.length; i++) {
+        const currentPrice = prices[i];
+        const currentProfit = currentPrice - minPrice;
+        if (currentProfit > maxProfit) {
+            maxProfit = currentProfit;
+        }
+        if (currentPrice < minPrice) {
+            minPrice = currentPrice;
+        }
+    }
+    return maxProfit
+}
+   console.log(stock(p))
